@@ -12,6 +12,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.TestPlatform" Version="17.11.0-release-24352-06" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="NuGet.Frameworks" Version="6.11.0-preview.2" />
+    <PackageReference Include="PromptPlus" Version="4.2.0" />
+    <PackageReference Include="Sharprompt" Version="3.0.0-preview4" />
+    <PackageReference Include="System.Management" Version="9.0.0-preview.6.24327.7" />
   </ItemGroup>
 
 </Project>

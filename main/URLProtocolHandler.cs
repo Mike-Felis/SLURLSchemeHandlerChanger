@@ -1,9 +1,10 @@
-using System.Diagnostics;
+namespace SLSchemaUtil;
+
 using Microsoft.Win32;
 
-public class URLProtocolHandler
+public class URLProtocolHandler<T>
 {
-    public URLProtocolHandler(String protocol, Process process, Func<Process, String> runCommand)
+    public URLProtocolHandler(String protocol, T process, Func<T, String> runCommand)
     {
         var key = Key(protocol);
         key.SetValue(string.Empty, "URL: Second Life");
