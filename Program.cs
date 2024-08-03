@@ -4,7 +4,6 @@ using SLSchemaUtil;
 
 using ConsoleAppFramework;
 using PPlus;
-using PPlus.Controls;
 
 var protocol = "secondlife";
 if (!IsAdministrator()){
