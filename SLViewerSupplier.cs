@@ -1,28 +1,23 @@
 namespace SLSchemaUtil;
-using System.Collections;
 using System.Diagnostics;
 using System.Management;
 using Microsoft.Win32;
 
-public class AppInfo{
-    public String Name="";
-    public String Path="";
-}
+public record AppInfo(String Name,String Path);
+
 public static class SLViewerSupplier
 {
     public static List<AppInfo> GetInstalledSLViewersByRegistry()
     {
-        string uninstall_path = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall";
-        RegistryKey uninstall = Registry.LocalMachine.OpenSubKey(uninstall_path, false);
+        string uninstallPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall";
+        var uninstall = Registry.LocalMachine.OpenSubKey(uninstallPath, false);
         if (uninstall == null){
             return new List<AppInfo>();
         }
         var list = uninstall.GetSubKeyNames().Select(e=>{
-            RegistryKey appkey = Registry.LocalMachine.OpenSubKey(uninstall_path + "\\" + e, false);
-            var appInfo = new AppInfo();
-            appInfo.Name = appkey.GetValue("DisplayName")?.ToString()??"";
-            appInfo.Path = appkey.GetValue("DisplayIcon")?.ToString()??"";
-            return appInfo;
+            var appKey = Registry.LocalMachine.OpenSubKey(uninstallPath + "\\" + e, false);
+            return new AppInfo(Name:appKey.GetValue("DisplayName")?.ToString()??""
+            ,Path:appKey.GetValue("DisplayIcon")?.ToString()??"");
         });
         return list.Where(e=>e.Name.Contains("Alchemy") || e.Name.Contains("Firestorm") || e.Name.Contains("SecondLife") ).ToList();
     }
@@ -37,7 +32,7 @@ public static class SLViewerSupplier
                 {
                     return new List<string>();
                 }
-                foreach (ManagementObject objItem in colResult)
+                foreach (var objItem in colResult)
                 {
                     lstSoft.Add(objItem["Name"].ToString());
                 }
