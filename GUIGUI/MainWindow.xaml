@@ -1,0 +1,47 @@
+﻿<Window x:Class="GUIGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUIGUI"
+        mc:Ignorable="d"
+         Style="{StaticResource MaterialDesignWindow}"
+        Title="MainWindow" Height="450" Width="800">
+         <Window.DataContext>
+        <local:BasicUsagesViewModel />
+    </Window.DataContext>
+    <!--
+    <Window.Resources>
+        <DataTemplate x:Key="cmbTemplate">
+            <WrapPanel Margin="0 5 0 5" >
+                <Image Width="65" Height="65" Stretch="Fill" Source="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,15,0"/>
+                <Label Content="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+            </WrapPanel>
+        </DataTemplate>
+    </Window.Resources>
+    -->
+    <Grid>
+     <StackPanel HorizontalAlignment="Left">
+          <TextBlock Text="{Binding Guide.Value}" Margin="0,10,0,0"/>
+<RadioButton IsChecked="{Binding IsLunching.Value}"
+	                 Content="起動中のビューワ" FontSize="20"/>
+	    <RadioButton 
+        IsChecked="{Binding IsInstalled.Value}"
+	                 Content="インストールされているビューワ"
+	                 FontSize="20"/>
+
+       <ComboBox 
+         ItemsSource="{Binding Viewers,Mode=TwoWay}"
+          SelectedItem="{Binding SelectedViewer.Value}"  
+              Height="40"
+              Width="300"
+              Margin="10"
+              FontSize="20"
+              VerticalAlignment="Center" DisplayMemberPath="Name"/>
+              <!--
+              ItemTemplate="{StaticResource cmbTemplate}"
+              -->
+<Button Command="{Binding BindCommand}"  >選択されているビューワを紐づける</Button>
+</StackPanel>
+    </Grid>
+</Window>

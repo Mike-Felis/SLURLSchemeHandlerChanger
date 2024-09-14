@@ -2,18 +2,28 @@ namespace SLSchemaUtil;
 using System.Diagnostics;
 using System.Management;
 using Microsoft.Win32;
+using System.Drawing;  
 
 public record AppInfo(string Name, string Path);
+public record AppInfoWithIcon(string Name, string Path,Icon icon);
 
 public interface IProcessSupplier
 {
     public Process[] GetProcesses();
 }
 
-#pragma warning disable CA1416
-public static class SLViewerSupplier
+public interface ISLViewerSupplier
 {
-    public static List<AppInfo> GetInstalledSLViewersByRegistry()
+    public  List<AppInfo> GetInstalledSLViewersByRegistry();
+    public  List<string> GetInstalledSLViewers();
+    public List<Process> GetSLViewers();
+
+}
+#pragma warning disable CA1416
+
+public class SLViewerSupplier:ISLViewerSupplier
+{
+    public  List<AppInfo> GetInstalledSLViewersByRegistry()
     {
         string uninstallPath = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall";
         var uninstall = Registry.LocalMachine.OpenSubKey(uninstallPath, false);
@@ -29,7 +39,7 @@ public static class SLViewerSupplier
         });
         return list.Where(e => e.Name.Contains("Alchemy") || e.Name.Contains("Firestorm") || e.Name.Contains("SecondLife")).ToList();
     }
-    public static List<string> GetInstalledSLViewers()
+    public  List<string> GetInstalledSLViewers()
     {
         using var searcher = new ManagementObjectSearcher("SELECT Name FROM Win32_Product");
         using var colResult = searcher.Get();
@@ -53,7 +63,7 @@ public static class SLViewerSupplier
         }
     }
 
-    public static List<Process> GetSLViewers()
+    public List<Process> GetSLViewers()
     {
         var list = new List<Process>();
         //ローカルコンピュータ上で実行されているすべてのプロセスを取得
