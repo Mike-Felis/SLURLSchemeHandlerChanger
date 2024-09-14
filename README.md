@@ -1,1 +1,2 @@
 # SLURLSchemeHandlerChanger
+- [] Combobox add Icon
