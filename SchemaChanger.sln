@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaChanger", "src\Schema
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{0F5F4D52-BD53-4F15-9BA4-08DF98BBB73B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUIGUI", "GUIGUI\GUIGUI.csproj", "{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +46,17 @@ Global
 		{0F5F4D52-BD53-4F15-9BA4-08DF98BBB73B}.Release|x64.Build.0 = Release|Any CPU
 		{0F5F4D52-BD53-4F15-9BA4-08DF98BBB73B}.Release|x86.ActiveCfg = Release|Any CPU
 		{0F5F4D52-BD53-4F15-9BA4-08DF98BBB73B}.Release|x86.Build.0 = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|x64.Build.0 = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Debug|x86.Build.0 = Debug|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|x64.ActiveCfg = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|x64.Build.0 = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|x86.ActiveCfg = Release|Any CPU
+		{CC7FB385-AE77-4C84-BE24-2ACEB9C1878D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

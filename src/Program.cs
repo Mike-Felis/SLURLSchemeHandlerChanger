@@ -40,7 +40,7 @@ namespace SchemaChanger
 
         public void Apply()
         {
-            var list = SLViewerSupplier.GetSLViewers();
+            var list = new SLViewerSupplier().GetSLViewers();
             static string RunCommandFunc(Process process) => $"\"{process.MainModule?.FileName}\" -url \"%1\"";
             URLProtocolHandler<Process>.CreateInstance(protocol, RunCommandFunc).Create(list.First());
         }
@@ -50,7 +50,7 @@ namespace SchemaChanger
         /// </summary>
         public void List()
         {
-            var list = SLViewerSupplier.GetInstalledSLViewersByRegistry();
+            var list = new SLViewerSupplier().GetInstalledSLViewersByRegistry();
             var p = PromptPlus.Select<string>("To which viewer do you want to bind it?");
             list.ForEach(a => p.AddItem(a.Name));
             var result = p.Run();
