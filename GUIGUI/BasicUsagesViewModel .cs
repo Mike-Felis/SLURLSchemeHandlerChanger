@@ -19,7 +19,6 @@ public class BasicUsagesViewModel
     public ReactiveProperty<AppInfoWithIcon> SelectedViewer { get; } = new ReactiveProperty<AppInfoWithIcon>();
     public ReactiveCommand BindCommand { get; }
 
-    public ReactiveCommand<Unit> ShowMessageBox { get; }   // bind to Button
 
     public BasicUsagesViewModel()
     {
