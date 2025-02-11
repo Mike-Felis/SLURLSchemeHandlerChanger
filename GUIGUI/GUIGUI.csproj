@@ -1,11 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net9.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+        <!-- 出力ファイル名 -->
+        <AssemblyName>SURLSchemaChanger</AssemblyName>
+        <!-- コンパイルをデバッグで行うかリリースで行うか -->
+        <Configuration>Release</Configuration>
+        <!-- コード最適化の有無(true=有) -->
+        <Optimize>true</Optimize>
   </PropertyGroup>
 
   <ItemGroup>
